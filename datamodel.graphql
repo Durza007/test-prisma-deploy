@@ -1,9 +1,9 @@
-type User {
+type Metadata {
     id: ID! @id
-    roles: [Role!]! @scalarList(strategy: RELATION)
+    name: String!
 }
 
-enum Role {
-    ADMIN
-    CLIENT
+type User {
+    id: ID! @id
+    metadata: Metadata! @relation(link: INLINE)
 }
